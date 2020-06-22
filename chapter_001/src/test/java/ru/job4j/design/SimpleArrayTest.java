@@ -5,10 +5,11 @@ import static org.hamcrest.Matchers.is;
 import org.junit.Test;
 import ru.job4j.design.generic.SimpleArray;
 
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 public class SimpleArrayTest {
-    private Iterator simplyArrayIt;
+    private Iterator<?> simplyArrayIt;
 
     @Test(expected = NoSuchElementException.class)
     public void whenSevenElementAdd() {
@@ -63,4 +64,17 @@ public class SimpleArrayTest {
         array.remove(0);
         assertThat(array.set(0, 1), is(1));
     }
+    @Test(expected = ConcurrentModificationException.class)
+    public void whenConcurrentModificationException() {
+        SimpleArray<Integer> array = new SimpleArray<>();
+        Iterator<Integer> simplyArrayIt = array.iterator();
+        array.add(0);
+        array.add(1);
+        array.add(2);
+        array.set(2, 3);
+        array.remove(0);
+        simplyArrayIt.hasNext();
+
+    }
+
 }
