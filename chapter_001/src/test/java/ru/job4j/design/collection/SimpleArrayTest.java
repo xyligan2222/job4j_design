@@ -1,7 +1,10 @@
 package ru.job4j.design.collection;
 
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertTrue;
+
 import ru.job4j.design.collection.SimpleArray;
 
 import org.junit.Test;
@@ -56,4 +59,23 @@ public class SimpleArrayTest {
         array.add("second");
         it.next();
     }
+    @Test
+    public void whenAddThenCheckDuplicate() {
+        SimpleSet<String> array = new SimpleSet<>();
+        array.add("first");
+        boolean rsl = array.checkDupli("first");
+        assertThat(rsl, is(true));
+    }
+
+    @Test
+    public void whenAddThenResult() {
+        SimpleSet<String> array = new SimpleSet<>();
+        array.add("first");
+        array.add("first");
+        boolean rsl = array.checkDupli("first");
+        for (String test : array) {
+        System.out.println(test.hashCode() + " " + test);
+        }
+    }
+
 }
