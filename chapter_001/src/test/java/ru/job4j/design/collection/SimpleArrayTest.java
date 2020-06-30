@@ -59,6 +59,7 @@ public class SimpleArrayTest {
         array.add("second");
         it.next();
     }
+
     @Test
     public void whenAddThenCheckDuplicate() {
         SimpleSet<String> array = new SimpleSet<>();
