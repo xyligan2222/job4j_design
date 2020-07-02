@@ -16,8 +16,8 @@ public class UserTest {
         String calendarSecond = Calendar.getInstance().getCalendarType();
         String nameFirst = "Papa";
         String nameSecond = "Papa";
-        int childrenFirst = 5;
-        int childrenSecond = 5;
+        int childrenFirst = 6;
+        int childrenSecond = 6;
         Object firstObject = new Object();
         Object secondObject = new Object();
         User one = new User(nameFirst, childrenFirst, calendarFirst);

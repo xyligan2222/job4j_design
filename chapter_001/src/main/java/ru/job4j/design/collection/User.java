@@ -23,7 +23,7 @@ public class User {
 
     @Override
     public int hashCode() {
-        return 0;
+        return Objects.hash(name, children, birthday);
     }
 
     public User(String name, int children, String birthday) {
