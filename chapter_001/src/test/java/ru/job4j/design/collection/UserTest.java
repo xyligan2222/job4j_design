@@ -25,7 +25,5 @@ public class UserTest {
         map.put(one, firstObject);
         map.put(two, secondObject);
         System.out.println(map);
-
     }
-
 }

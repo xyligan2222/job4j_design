@@ -7,10 +7,23 @@ public class User {
     private int children;
     private String birthday;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof User)) {
+            return false;
+        }
+        User user = (User) o;
+        return children == user.children
+                && name.equals(user.name)
+                && birthday.equals(user.birthday);
+    }
 
-    @SuppressWarnings("checkstyle:EqualsHashCode")
+    @Override
     public int hashCode() {
-        return Objects.hashCode(name) ^ Objects.hashCode(children) ^ Objects.hashCode(birthday);
+        return 0;
     }
 
     public User(String name, int children, String birthday) {
