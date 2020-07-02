@@ -7,7 +7,7 @@ public class SimpleQueue<T> {
     private final SimpleStack<T> out = new SimpleStack<>();
     int count = 0;
 
-    public T poll() {
+    /*public T poll() {
         for (int i = 0; i < count; i++) {
             out.push(in.pop());
         }
@@ -18,5 +18,5 @@ public class SimpleQueue<T> {
     public void push(T value) {
         in.push(value);
         count++;
-    }
+    }*/
 }
