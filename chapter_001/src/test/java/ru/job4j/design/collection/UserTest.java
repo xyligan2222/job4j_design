@@ -12,10 +12,10 @@ public class UserTest {
     @Test
     public void whenUserDuplicate() {
         Map<User, Object> map = new HashMap<>();
-        Calendar calendarFirst = Calendar.getInstance();
-        Calendar calendarSecond = Calendar.getInstance();
-        String nameFirst = "Vova";
-        String nameSecond = "Vova";
+        String calendarFirst = Calendar.getInstance().getCalendarType();
+        String calendarSecond = Calendar.getInstance().getCalendarType();
+        String nameFirst = "Papa";
+        String nameSecond = "Papa";
         int childrenFirst = 5;
         int childrenSecond = 5;
         Object firstObject = new Object();
@@ -25,6 +25,7 @@ public class UserTest {
         map.put(one, firstObject);
         map.put(two, secondObject);
         System.out.println(map);
+
     }
 
 }

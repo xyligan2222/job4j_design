@@ -1,13 +1,19 @@
 package ru.job4j.design.collection;
 
-import java.util.Calendar;
+import java.util.Objects;
 
 public class User {
     private String name;
     private int children;
-    private Calendar birthday;
+    private String birthday;
 
-    public User(String name, int children, Calendar birthday) {
+
+    @SuppressWarnings("checkstyle:EqualsHashCode")
+    public int hashCode() {
+        return Objects.hashCode(name) ^ Objects.hashCode(children) ^ Objects.hashCode(birthday);
+    }
+
+    public User(String name, int children, String birthday) {
         this.name = name;
         this.children = children;
         this.birthday = birthday;
@@ -41,11 +47,11 @@ public class User {
         this.children = children;
     }
 
-    public Calendar getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Calendar birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 }
