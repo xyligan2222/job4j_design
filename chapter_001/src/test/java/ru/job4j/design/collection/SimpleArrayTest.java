@@ -76,5 +76,4 @@ public class SimpleArrayTest {
         System.out.println(test.hashCode() + " " + test);
         }
     }
-
 }
