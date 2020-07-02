@@ -57,4 +57,21 @@ public class SimpleArray<T> implements Iterable<T> {
 
         };
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof SimpleArray)) {
+            return false;
+        }
+        SimpleArray<?> that = (SimpleArray<?>) o;
+        return Arrays.equals(arrays, that.arrays);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(arrays);
+    }
 }

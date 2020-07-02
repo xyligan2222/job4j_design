@@ -7,7 +7,7 @@ public class Test {
 
 
         System.out.println(data.length);
-        System.out.println("Hello Vasya!!!");
+        System.out.println(1 % 2);
         System.out.println("Hello Vasya!!!");
     }
 }
