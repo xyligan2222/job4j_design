@@ -7,7 +7,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 public class SimpleStackTest {
-
+/*
     @Test
     @Ignore
     public void whenPushThenPoll() {
@@ -34,5 +34,5 @@ public class SimpleStackTest {
         stack.push(2);
         stack.pop();
         assertThat(stack.pop(), is(1));
-    }
+    }*/
 }
