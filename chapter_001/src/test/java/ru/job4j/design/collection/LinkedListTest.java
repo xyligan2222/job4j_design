@@ -88,4 +88,5 @@ public class LinkedListTest {
         assertThat(it.next(), is(2));
         assertThat(it.next(), is(1));
     }
+
 }
