@@ -8,7 +8,7 @@ import org.junit.Test;
 
 public class SimpleStackTest {
 
-   /* @Test
+    @Test
     public void whenPushThenPoll() {
         SimpleStack<Integer> stack = new SimpleStack<>();
         stack.push(0);
@@ -31,5 +31,5 @@ public class SimpleStackTest {
         stack.push(2);
         stack.pop();
         assertThat(stack.pop(), is(1));
-    }*/
+    }
 }

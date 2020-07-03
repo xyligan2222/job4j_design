@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
 public class SimpleStack<T> {
     private ForwardLinked<T> linked = new ForwardLinked<T>();
 
-    /*public T pop() {
+    public T pop() {
         T rsl = null;
         Iterator<T> iter = linked.iterator();
         while (iter.hasNext()) {
@@ -21,6 +21,6 @@ public class SimpleStack<T> {
 
     public void push(T value) {
         linked.add(value);
-    }*/
+    }
 
 }

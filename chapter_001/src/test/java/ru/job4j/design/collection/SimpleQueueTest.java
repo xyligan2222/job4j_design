@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
 
 public class SimpleQueueTest {
 
-   /* @Test
+   @Test
     public void whenPushPoll() {
         SimpleQueue<Integer> queue = new SimpleQueue<>();
         queue.push(1);
@@ -38,11 +38,10 @@ public class SimpleQueueTest {
     }
 
     @Test(expected = NoSuchElementException.class)
-   // @Ignore
     public void whenEmptyPoll() {
         SimpleQueue<Integer> queue = new SimpleQueue<>();
         queue.poll();
-    }*/
+    }
 
     /*@Test
     //@Ignore
