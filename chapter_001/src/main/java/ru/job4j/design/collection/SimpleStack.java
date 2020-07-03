@@ -6,9 +6,9 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class SimpleStack<T> {
-    /*private ForwardLinked<T> linked = new ForwardLinked<T>();
+    private ForwardLinked<T> linked = new ForwardLinked<T>();
 
-    public T pop() {
+    /*public T pop() {
         T rsl = null;
         Iterator<T> iter = linked.iterator();
         while (iter.hasNext()) {

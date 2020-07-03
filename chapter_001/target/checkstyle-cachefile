@@ -1,13 +1,13 @@
-#Thu Jul 02 17:58:41 MSK 2020
+#Fri Jul 03 10:42:39 MSK 2020
 C\:\\projects\\job4j_design\\chapter_001\\src\\main\\java\\ru\\job4j\\design\\it\\Converter.java=1592565149765
 C\:\\projects\\job4j_design\\chapter_001\\src\\main\\java\\ru\\job4j\\design\\it\\MatrixIt.java=1592555275729
-C\:\\projects\\job4j_design\\chapter_001\\src\\main\\java\\ru\\job4j\\design\\collection\\SimpleStack.java=1593701405167
+C\:\\projects\\job4j_design\\chapter_001\\src\\main\\java\\ru\\job4j\\design\\collection\\SimpleStack.java=1593761627834
 C\:\\projects\\job4j_design\\chapter_001\\src\\main\\java\\ru\\job4j\\design\\collection\\User.java=1593696517394
 C\:\\projects\\job4j_design\\chapter_001\\src\\test\\java\\ru\\job4j\\design\\collection\\SimpleArrayTest.java=1593678258880
-C\:\\projects\\job4j_design\\chapter_001\\src\\main\\java\\ru\\job4j\\design\\Test.java=1592987614579
 C\:\\projects\\job4j_design\\chapter_001\\src\\main\\java\\ru\\job4j\\design\\generic\\User.java=1592922957284
+C\:\\projects\\job4j_design\\chapter_001\\src\\main\\java\\ru\\job4j\\design\\Test.java=1592987614579
 C\:\\projects\\job4j_design\\chapter_001\\src\\test\\java\\ru\\job4j\\design\\collection\\UserTest.java=1593696426927
-C\:\\projects\\job4j_design\\chapter_001\\src\\test\\java\\ru\\job4j\\design\\BackwardArrayItTest.java=1592549536850
+C\:\\projects\\job4j_design\\chapter_001\\src\\test\\java\\ru\\job4j\\design\\BackwardArrayItTest.java=1593761809944
 C\:\\projects\\job4j_design\\chapter_001\\src\\test\\java\\ru\\job4j\\design\\EvenIteratorTest.java=1592557699079
 C\:\\projects\\job4j_design\\chapter_001\\src\\main\\java\\ru\\job4j\\design\\it\\EvenNumbersIterator.java=1592559298635
 C\:\\projects\\job4j_design\\chapter_001\\src\\main\\java\\ru\\job4j\\design\\collection\\ForwardLinked.java=1593179267643
@@ -21,13 +21,13 @@ C\:\\projects\\job4j_design\\chapter_001\\src\\main\\java\\ru\\job4j\\design\\ge
 C\:\\projects\\job4j_design\\chapter_001\\src\\main\\java\\ru\\job4j\\design\\generic\\MemStore.java=1592923548913
 C\:\\projects\\job4j_design\\chapter_001\\src\\test\\java\\ru\\job4j\\design\\SimpleArrayTest.java=1592845449938
 C\:\\projects\\job4j_design\\chapter_001\\src\\main\\java\\ru\\job4j\\design\\collection\\LinkedList.java=1593077338327
-C\:\\projects\\job4j_design\\chapter_001\\src\\test\\java\\ru\\job4j\\design\\collection\\SimpleQueueTest.java=1593701916055
+C\:\\projects\\job4j_design\\chapter_001\\src\\test\\java\\ru\\job4j\\design\\collection\\SimpleQueueTest.java=1593761704568
 C\:\\projects\\job4j_design\\chapter_001\\src\\main\\java\\ru\\job4j\\design\\generic\\SimpleArray.java=1592845489029
 C\:\\projects\\job4j_design\\chapter_001\\src\\test\\java\\ru\\job4j\\design\\collection\\LinkedListTest.java=1593173499288
-C\:\\projects\\job4j_design\\chapter_001\\src\\main\\java\\ru\\job4j\\design\\collection\\SimpleQueue.java=1593701891133
+C\:\\projects\\job4j_design\\chapter_001\\src\\main\\java\\ru\\job4j\\design\\collection\\SimpleQueue.java=1593761704560
 C\:\\projects\\job4j_design\\chapter_001\\src\\main\\java\\ru\\job4j\\design\\generic\\Base.java=1592907406845
 C\:\\projects\\job4j_design\\chapter_001\\src\\main\\java\\ru\\job4j\\design\\generic\\RoleStore.java=1592923548896
-C\:\\projects\\job4j_design\\chapter_001\\src\\test\\java\\ru\\job4j\\design\\collection\\DeleteFirstLinkedTest.java=1593095265482
-C\:\\projects\\job4j_design\\chapter_001\\src\\test\\java\\ru\\job4j\\design\\collection\\SimpleStackTest.java=1593701247287
-C\:\\projects\\job4j_design\\chapter_001\\src\\main\\java\\ru\\job4j\\design\\collection\\SimpleSet.java=1593678351716
+C\:\\projects\\job4j_design\\chapter_001\\src\\test\\java\\ru\\job4j\\design\\collection\\DeleteFirstLinkedTest.java=1593762155203
+C\:\\projects\\job4j_design\\chapter_001\\src\\test\\java\\ru\\job4j\\design\\collection\\SimpleStackTest.java=1593761704553
+C\:\\projects\\job4j_design\\chapter_001\\src\\main\\java\\ru\\job4j\\design\\collection\\SimpleSet.java=1593758017958
 C\:\\projects\\job4j_design\\chapter_001\\src\\main\\java\\ru\\job4j\\design\\generic\\UserStore.java=1592923828325

@@ -10,7 +10,7 @@ public class SimpleSet<T> implements Iterable<T> {
         boolean rsl = false;
         Iterator<T> it = simpleArray.iterator();
         while (it.hasNext()) {
-            if (Objects.equals(it.hasNext(), model)) {
+            if (Objects.equals(it.next(), model)) {
                 rsl = true;
                 break;
             }
