@@ -55,6 +55,7 @@ public class SimpleHashMap<K, V> implements Iterable<SimpleHashMap.Node<K, V>> {
         return null;
     }
 
+
     public boolean delete(K key) {
         int index = findIndex(key);
         boolean rsl = false;

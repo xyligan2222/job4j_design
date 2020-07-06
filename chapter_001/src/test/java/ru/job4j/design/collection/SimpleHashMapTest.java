@@ -65,7 +65,6 @@ public class SimpleHashMapTest {
         assertThat(map.delete(1), is(false));
     }
 
-
     @Test
     public void whenDeleteThanSuccess() {
         map.insert(5, "fifth");
