@@ -5,6 +5,7 @@ package ru.job4j.design.collection;
 
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 
 public class SimpleHashMap<K, V> implements Iterable<SimpleHashMap.Node<K, V>> {
@@ -14,12 +15,31 @@ public class SimpleHashMap<K, V> implements Iterable<SimpleHashMap.Node<K, V>> {
     private int modCount;
     private int size;
 
+    public SimpleHashMap() {
+        this.array = new Node[capacity];
+        this.size = 0;
+        modCount = 0;
+        
+    }
+
     public boolean insert(K key, V value) {
+        int index = findIndex(key);
+        Node<K, V> node = new Node<>(key, value);
         if (size >= capacity * loadFactor) {
             resize();
         }
-        size++;
-        modCount++;
+        if (array[index] != null && hash(node.key) == hash(array[index].key)) {
+            if (!(node.key == array[index].key || node.key.equals(array[index].key))) {
+                return false;
+            }
+            array[index].key = node.key;
+            array[index].value = node.value;
+            this.modCount++;
+            return true;
+        }
+        this.array[index] = node;
+        this.size++;
+        this.modCount++;
         return true;
     }
 
@@ -28,7 +48,8 @@ public class SimpleHashMap<K, V> implements Iterable<SimpleHashMap.Node<K, V>> {
         if (this.array[index] == null) {
             return null;
         }
-        if (hash(key) == hash(array[index].key) &&  key.equals(array[index].key)) {
+        if (hash(key) == hash(array[index].key)
+                && (key.equals(array[index].key) || key == array[index].key)) {
             return this.array[index].value;
         }
         return null;
@@ -40,10 +61,11 @@ public class SimpleHashMap<K, V> implements Iterable<SimpleHashMap.Node<K, V>> {
         if (this.array[index] == null) {
             rsl = false;
         }
-        if (hash(key) == hash(this.array[index].key) && (key.equals(array[index].key))) {
+        if (hash(key) == hash(this.array[index].key)
+                && (key.equals(array[index].key) || key == array[index].key)) {
             size--;
-            modCount--;
-            this.array[index].key = null;
+            modCount++;
+            this.array[index] = null;
             rsl = true;
         }
         return rsl;
@@ -64,8 +86,8 @@ public class SimpleHashMap<K, V> implements Iterable<SimpleHashMap.Node<K, V>> {
     }
 
     static final int hash(Object key) {
-        int h;
-        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+        int h = key.hashCode();
+        return (key == null) ? 0 : h ^ (h >>> 16);
     }
 
     private int findIndex(K key) {
@@ -84,12 +106,15 @@ public class SimpleHashMap<K, V> implements Iterable<SimpleHashMap.Node<K, V>> {
                     throw new ConcurrentModificationException();
                 }
 
-                return false;
+                return count < capacity;
             }
 
             @Override
             public Node<K, V> next() {
-                return null;
+                if (!hasNext()) {
+                    throw new NoSuchElementException();
+                }
+                return array[count++];
             }
         };
     }
