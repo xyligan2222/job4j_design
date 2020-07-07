@@ -11,16 +11,15 @@ class Tree<E> implements SimpleTree<E> {
 
     @Override
     public boolean add(E parent, E child) {
-        Node<E> node = findBy(parent).orElse(null);
-        if (node != null && child == null) {
-            for (Node<E> x : node.children) {
-                if (x.children.equals(child)) {
-                    return false;
-                }
+        Optional<Node<E>> nodeParent = findBy(parent);
+        if (nodeParent.isPresent()) {
+            Optional<Node<E>> nodeChild = findBy(child);
+            if (!nodeChild.isPresent()) {
+                nodeParent.get().children.add(new Node(child));
+                return true;
             }
         }
-            node.children.add(new Node<E>(child));
-        return true;
+        return false;
     }
 
     @Override
