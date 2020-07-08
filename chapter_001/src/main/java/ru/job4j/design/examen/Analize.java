@@ -24,9 +24,7 @@ public class Analize {
 
         }
         info.added = current.size() - previous.size() + info.deleted;
-
         return info;
-
     }
 
     public static class User {

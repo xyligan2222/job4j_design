@@ -8,7 +8,7 @@ import static org.hamcrest.Matchers.is;
 
 public class AnalizeTest {
     @Test
-    public void whenAdded2Changed1Deleted2() {
+    public void whenAdded1Changed2Deleted2() {
         Analize.User user1 = new Analize.User(1, "user1");
         Analize.User user2 = new Analize.User(2, "user2");
         Analize.User user3 = new Analize.User(3, "user3");
@@ -21,7 +21,6 @@ public class AnalizeTest {
         Analize.User user10 = new Analize.User(10, "user10");
         Analize.User user11 = new Analize.User(11, "user11");
         Analize.User user12 = new Analize.User(12, "user12");
-
         List<Analize.User> previous = List.of(user1, user2, user3, user4, user5, user6, user7, user8, user9, user10, user11);
         user3 = new Analize.User(3, "Boy1");
         user5 = new Analize.User(5, "Boy2");
