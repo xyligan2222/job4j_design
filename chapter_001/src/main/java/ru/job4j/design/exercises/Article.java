@@ -16,13 +16,18 @@ public class Article {
             mapOrigin.add(strAfterOrigin[i]);
         }
         String[] strAfterLine = line.replaceAll("\\p{Punct}", "").toLowerCase().split(" ");
-        for (int i = 0; i < strAfterLine.length; i++) {
+        /*for (int i = 0; i < strAfterLine.length; i++) {
             mapLine.add(strAfterLine[i]);
         }
         if (!mapOrigin.containsAll(mapLine)) {
             rsl = false;
+        }*/
+        for (int i = 0; i < strAfterLine.length; i++) {
+            if (!mapOrigin.contains(strAfterLine[i])) {
+                rsl = false;
+                break;
+            }
         }
-
         return rsl;
     }
 }
