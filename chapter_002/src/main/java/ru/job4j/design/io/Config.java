@@ -15,21 +15,15 @@ public class Config {
 
     public void load() {
         try (BufferedReader in = new BufferedReader(new FileReader(this.path))) {
-        Collection<String[]> str = in.lines().filter(x -> !x.contains("##"))
-                .map(y -> y.split("=")).
-                        collect(Collectors.toCollection(ArrayList::new));
-        Iterator it = str.iterator();
-        while (it.hasNext()) {
-            String[] strArray = (String[]) it.next();
-            if (strArray.length == 2) {
-                values.put(strArray[0], strArray[1]);
-            }
-        }
-
+            in.lines().filter(x -> !x.contains("##"))
+                    .map(y -> y.split("="))
+                    .filter(el -> el.length == 2)
+                    .forEach(el -> values.put(el[0], el[1]));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 
     public String value(String key) {
         return values.get(key);

@@ -5,7 +5,7 @@ import java.io.*;
 
 
 public class Analizy {
-    public void unavailable(String source, String target) {
+    public  void unavailable(String source, String target) {
         String temp = null;
         String read, readTo;
 
@@ -26,8 +26,8 @@ public class Analizy {
         }
     }
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         Analizy analizy = new Analizy();
         analizy.unavailable("C:\\projects\\job4j_design\\source.txt", "C:\\projects\\job4j_design\\unavailable.csv");
-    }
+    }*/
 }
