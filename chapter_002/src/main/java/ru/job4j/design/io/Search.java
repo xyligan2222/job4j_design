@@ -7,8 +7,12 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class Search {
+
     public static void main(String[] args) throws IOException {
-        Path start = Paths.get(".");
+       if (args.length == 0) {
+            throw new IllegalStateException("Root folder is null.");
+        }
+        Path start = Paths.get(args[0]);
         search(start, "js").forEach(System.out::println);
     }
 
@@ -17,4 +21,5 @@ public class Search {
         Files.walkFileTree(root, printFiles);
         return printFiles.getList();
     }
+
 }
