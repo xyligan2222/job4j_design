@@ -2,22 +2,24 @@ package ru.job4j.design.io;
 
 import test.PrintFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 import static java.nio.file.FileVisitResult.CONTINUE;
 
 public class PrintFiles implements FileVisitor<Path> {
-    private String ext;
+    private Predicate<File> predicate;
 
-    public PrintFiles(String ext) {
-        this.ext = ext;
+    public PrintFiles(Predicate<File> predicate) {
+        this.predicate = predicate;
     }
 
-    private List<String> list = new ArrayList<>();
+    private List<Path> list = new ArrayList<>();
 
 
     @Override
@@ -27,8 +29,8 @@ public class PrintFiles implements FileVisitor<Path> {
 
     @Override
     public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-        if (file.toAbsolutePath().getFileName().toString().endsWith(getExt())) {
-            list.add(file.toAbsolutePath().getFileName().toString());
+        if (predicate.test(file.toFile())) {
+            list.add(file);
         }
         return CONTINUE;
     }
@@ -43,17 +45,7 @@ public class PrintFiles implements FileVisitor<Path> {
         return CONTINUE;
     }
 
-
-    public String getExt() {
-        return ext;
-    }
-
-    public void setExt(String ext) {
-        this.ext = ext;
-    }
-
-
-    public List<String> getList() {
+    public List<Path> getList() {
         return list;
     }
 }

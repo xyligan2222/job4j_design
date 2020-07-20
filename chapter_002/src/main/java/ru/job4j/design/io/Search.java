@@ -16,10 +16,10 @@ public class Search {
         search(start, "js").forEach(System.out::println);
     }
 
-    public static List<String> search(Path root, String ext) throws IOException {
-        PrintFiles printFiles = new PrintFiles(ext);
-        Files.walkFileTree(root, printFiles);
-        return printFiles.getList();
+    public static List<Path> search(Path root, String ext) throws IOException {
+        PrintFiles searcher = new PrintFiles(p -> p.getName().endsWith(ext));
+        Files.walkFileTree(root, searcher);
+        return searcher.getList();
     }
 
 }
