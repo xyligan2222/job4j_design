@@ -1,6 +1,7 @@
 package ru.job4j.design.io;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -39,9 +40,17 @@ public class ConsoleChat {
     /*
         Write file after dialog
      */
-    public void writeFiles(String log) {
+    public void writeFiles(ArrayList<String> list) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(logChat, true))) {
-            writer.write(log + System.lineSeparator());
+                for (String lists : list) {
+                    if (!lists.isEmpty()) {
+                        writer.write(lists + System.lineSeparator());
+                    }
+
+                }
+
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -51,6 +60,7 @@ public class ConsoleChat {
     the bot responds randomly with lines from the file
      */
     public void consoleDialog() {
+        ArrayList<String> list = new ArrayList<>();
         boolean stopCount = false;
         String words, text;
         String wordLowerCase = "";
@@ -59,13 +69,13 @@ public class ConsoleChat {
             while (!wordLowerCase.equals(END)) {
                 words = in.nextLine();
                 wordLowerCase = words.toLowerCase();
-                writeFiles(words);
+                list.add(words);
                 if ((!wordLowerCase.equals(STOP)) && !stopCount
                         && wordLowerCase.length() > 0
                         && (!wordLowerCase.equals(END))) {
                     text = textMap.get((int) ((Math.random() * (count - 1) + 1)));
                     System.out.println(text);
-                    writeFiles(text);
+                    list.add(text);
                 } else if (wordLowerCase.equals(CONTINUE)) {
                     System.out.println("Продолжаем разговор");
                     stopCount = false;
@@ -75,6 +85,7 @@ public class ConsoleChat {
                 }
             } if (wordLowerCase.equals(END)) {
                 System.out.println("До скорых волнительных встреч");
+                writeFiles(list);
             }
         }
     }
