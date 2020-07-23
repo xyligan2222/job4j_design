@@ -8,27 +8,37 @@ public class EchoServer {
     
     public static void main(String[] args) throws IOException {
         try (ServerSocket server = new ServerSocket(9000)) {
-            while (true) {
+            boolean rslBye = false;
+            while (!rslBye) {
                 Socket socket = server.accept();
                 try (OutputStream out = socket.getOutputStream();
                      BufferedReader in = new BufferedReader(
                              new InputStreamReader(socket.getInputStream()))) {
-                    boolean rsl = false;
-                    String bye = "bye";
+                    boolean rslHello = false;
+                    String bye = "exit";
+                    String hello = "hello";
                     String str = in.readLine();
-                    String[] strings = str.replaceAll("=", " ").split(" ");
+                   String[] strings = str.replaceAll("=", " ").split(" ");
                     for (String string : strings) {
                         if (string.toLowerCase().equals(bye)) {
-                            rsl = true;
+                            rslBye = true;
+                            break;
+                        }
+                        if (string.toLowerCase().equals(hello)) {
+                            rslHello = true;
                         }
                     }
-                    if (rsl) {
+                    if (rslBye) {
                         socket.close();
                         System.out.println("Сокет закрыт");
-                    } else if (!str.isEmpty()) {
-                        System.out.println(str);
+                    } else if (rslHello) {
+                        out.write("HTTP/1.1 200 OK\r\n\r\n".getBytes());
+                        out.write(("Hello" + "\n").getBytes());
+                    } else {
+                        out.write("HTTP/1.1 200 OK\r\n\r\n".getBytes());
+                        out.write(((strings[2]).replaceAll("%D1%83", "") + "\n").getBytes());
+                        System.out.println();
                     }
-                    out.write("HTTP/1.1 200 OK\r\n\\".getBytes());
                 }
             }
         }
