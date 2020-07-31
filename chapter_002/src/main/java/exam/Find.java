@@ -13,10 +13,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringJoiner;
+import java.util.function.Predicate;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-public class SearchFiles {
+public class Find {
     private static final Logger LOG = LoggerFactory.getLogger(UsageLog4j.class.getName());
 
     public static void main(String[] args) {
@@ -30,16 +31,29 @@ public class SearchFiles {
         System.out.println(keys.maxMatch());
         if (keys.valid()) {
             Path root = Paths.get(keys.directory());
-
+            List<Path> sourceFiles = null;
+            try {
+                Predicate<Path> predicate = ConditionFactory.preparePredicate(keys);
+                sourceFiles = search(root, predicate);
+            } catch (IOException e) {
+                LOG.error("Get path error", e);
+            }
+            resultSourceFiles(sourceFiles, list);
+            LOG.info("Complete");
+            System.out.println("Complete");
+        } else {
+            LOG.error("You have invalid params. Write java -jar find.jar -d=c:/ -n=file.txt -m=*.mask -r=regexp -o=log.txt");
         }
+
+
     }
 
      /*
         method search  find file
     */
 
-    public static List<Path> search(Path root, String ext) throws IOException {
-        PrintFiles searcher = new PrintFiles(p -> p.getName().endsWith(ext));
+    public static List<Path> search(Path root, Predicate<Path> predicate) throws IOException {
+        SerchFile searcher = new SerchFile(predicate);
         Files.walkFileTree(root, searcher);
         return searcher.getList();
     }
