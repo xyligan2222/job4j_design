@@ -20,7 +20,8 @@ public class FileCache implements Cache<String, String> {
         String getContent = "";
         if (map.containsKey(key)) {
             getContent = map.get(key).get();
-        } else if (getContent.equals("")) {
+        }
+        if (getContent == null || getContent.equals("")) {
             getContent = readFile(key);
             map.put(key, new SoftReference<>(getContent));
         }
