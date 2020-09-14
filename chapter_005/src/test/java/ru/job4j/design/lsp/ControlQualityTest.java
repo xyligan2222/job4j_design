@@ -2,6 +2,7 @@ package ru.job4j.design.lsp;
 
 
 import org.junit.Test;
+import ru.job4j.design.lsp.product.*;
 
 import java.io.IOException;
 

@@ -1,6 +1,4 @@
-package ru.job4j.design.lsp;
-
-import java.util.List;
+package ru.job4j.design.lsp.product;
 
 public interface Store {
     /**

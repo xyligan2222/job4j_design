@@ -1,16 +1,16 @@
-package ru.job4j.design.lsp;
+package ru.job4j.design.lsp.product;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Warehouse implements Store {
+public class Trash implements Store {
     private List<Food> list = new ArrayList<>();
 
     @Override
     public void add(Food food) {
-        if (find(food) != 0) {
-            list.add(food);
-        }
+    if (find(food) != 0) {
+        list.add(food);
+    }
     }
 
     @Override
