@@ -1,24 +1,28 @@
 package ru.job4j.design.lsp.product;
 
+import java.io.IOException;
+import java.util.List;
+
 public interface Store {
     /**
      *
      * @param food this method add Food to conteyner
      */
-        void add(Food food);
+        void add(Food food) throws IOException;
 
     /**
      *
-     * @param food this method get Food from conteyner
-     * @return Food  if he is
+     * @param food checks if food is suitable for this storage
+     * @return true if he is
      */
-        Food get(Food food);
+        boolean accept(Food food) throws IOException;
 
     /**
      *
-     * @param food this method find number Food from conteyner
-     * @return number product
+     * @return Clears the storage and returns what would be in it
      */
-    int find(Food food);
+
+    List<Food> clear();
+
     }
 

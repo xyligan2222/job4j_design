@@ -1,5 +1,6 @@
 package ru.job4j.design.lsp.product;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,34 +8,23 @@ public class Warehouse implements Store {
     private List<Food> list = new ArrayList<>();
 
     @Override
-    public void add(Food food) {
-        if (find(food) != 0) {
+    public void add(Food food) throws IOException {
+        if (accept(food)) {
             list.add(food);
         }
     }
 
     @Override
-    public Food get(Food food) {
-        int index = find(food);
-        if (index == -1) {
-            return null;
-        }
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).equals(food)) {
-                return  list.get(i);
-            }
-        }
-        return null;
+    public boolean accept(Food food) throws IOException {
+        return DateCalculation.percent(food.getCreateDate(), food.getExpaireDate()) < 25;
     }
 
     @Override
-    public int find(Food food) {
-        int rsl = 0;
-        if (food == null || list.isEmpty()) {
-            return rsl;
-        } else {
-            rsl = list.indexOf(food);
-        }
+    public List<Food> clear() {
+        List<Food> rsl = new ArrayList<>(list);
+        list.clear();
         return rsl;
     }
+
+
 }

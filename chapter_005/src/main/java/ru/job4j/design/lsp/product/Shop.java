@@ -1,40 +1,45 @@
 package ru.job4j.design.lsp.product;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Shop implements Store {
-    private List<Food> list = new ArrayList<>();
+    private List<Food> list = new LinkedList<>();
 
     @Override
-    public void add(Food food) {
-        if (find(food) != 0) {
+    public void add(Food food) throws IOException {
+        if (accept(food)) {
             list.add(food);
         }
     }
 
     @Override
-    public Food get(Food food) {
-        int index = find(food);
-        if (index == -1) {
-            return null;
+    public boolean accept(Food food) throws IOException {
+        int percent = DateCalculation.percent(food.getCreateDate(), food.getExpaireDate());
+        if (percent >= 25 && percent < 75) {
+            return true;
         }
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).equals(food)) {
-                return  list.get(i);
-            }
+        if (percent >= 75) {
+            food.setDisscount(50);
+            return true;
         }
-        return null;
+        return false;
     }
 
     @Override
-    public int find(Food food) {
-        int rsl = 0;
-        if (food == null || list.isEmpty()) {
-            return rsl;
-        } else {
-            rsl = list.indexOf(food);
-        }
+    public List<Food> clear() {
+        List<Food> rsl = new ArrayList<>(list);
+        list.clear();
+        String test = rsl.get(0).getName();
         return rsl;
+    }
+
+
+    public String getFood() {
+        int test = list.size();
+
+        return list.get(0).getName();
     }
 }
