@@ -73,7 +73,6 @@ public class Food {
                 Objects.equals(createDate, food.createDate) &&
                 Objects.equals(expaireDate, food.expaireDate);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(name, createDate, expaireDate, price, disscount);

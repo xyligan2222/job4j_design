@@ -26,5 +26,4 @@ public class Warehouse implements Store {
         return rsl;
     }
 
-
 }

@@ -16,7 +16,6 @@ public interface Store {
      * @return true if he is
      */
         boolean accept(Food food) throws IOException;
-
     /**
      *
      * @return Clears the storage and returns what would be in it

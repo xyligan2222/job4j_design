@@ -6,7 +6,6 @@ import java.util.List;
 
 public class Trash implements Store {
     private List<Food> list = new ArrayList<>();
-
     @Override
     public void add(Food food) throws IOException {
         if (accept(food)) {

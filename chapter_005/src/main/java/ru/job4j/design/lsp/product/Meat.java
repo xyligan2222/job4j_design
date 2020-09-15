@@ -9,5 +9,6 @@ public class Meat extends Food {
         setExpaireDate(LocalDateTime.of(2021,8,31,23,00));
         setPrice(300);
         //setDisscount((float) 7.1);
+
     }
 }

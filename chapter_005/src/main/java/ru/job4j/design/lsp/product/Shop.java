@@ -14,7 +14,6 @@ public class Shop implements Store {
             list.add(food);
         }
     }
-
     @Override
     public boolean accept(Food food) throws IOException {
         int percent = DateCalculation.percent(food.getCreateDate(), food.getExpaireDate());

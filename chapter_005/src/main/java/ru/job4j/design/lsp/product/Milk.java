@@ -9,5 +9,6 @@ public class Milk extends Food {
         setExpaireDate(LocalDateTime.of(2020,10,10,23,00));
         setPrice(50);
         //setDisscount((float) 3.1);
+
     }
 }

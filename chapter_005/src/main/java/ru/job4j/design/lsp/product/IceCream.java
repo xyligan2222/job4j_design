@@ -9,5 +9,6 @@ public class IceCream extends Food {
         setExpaireDate(LocalDateTime.of(2020,9,13,23,00));
         setPrice(80);
         //setDisscount((float) 7.1);
+
     }
 }

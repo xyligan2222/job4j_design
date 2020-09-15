@@ -22,7 +22,7 @@ public class ControlQualityTest {
         controlQuality.distribute(List.of(food));
         //Assert.assertThat(warehouse.clear().size(), Is.is(0));
         //Assert.assertThat(trash.clear().size(), Is.is(0));
-      //  Assert.assertThat(shop.clear().get(0).getName(), Is.is("Prostokvashino"));
+      // Assert.assertThat(shop.clear().get(0).getName(), Is.is("Prostokvashino"));
         System.out.println(shop.getFood());
     }
    /* @Test
