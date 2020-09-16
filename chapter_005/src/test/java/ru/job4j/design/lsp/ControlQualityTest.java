@@ -7,7 +7,6 @@ import org.junit.Test;
 import ru.job4j.design.lsp.product.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ControlQualityTest {
@@ -60,5 +59,4 @@ public class ControlQualityTest {
         controlQuality.distribute(food);
         Assert.assertThat(shop.clear().get(0).getName(), Is.is("Novichok"));
     }
-
 }
