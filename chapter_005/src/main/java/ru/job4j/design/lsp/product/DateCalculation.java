@@ -25,9 +25,9 @@ public class DateCalculation {
     }
 
     public static int percent(LocalDateTime createDate, LocalDateTime expaireDate) throws IOException {
-        if (createDateBetweenDateNow(createDate) > 0) {
-            return  (int) ((-100 * DateCalculation.createDateBetweenDateNow(expaireDate))
-                    / DateCalculation.dateDifference(createDate, expaireDate));
+        if (createDateBetweenDateNow(expaireDate) < 0) {
+            return  (int) (100 - ((-100 * DateCalculation.createDateBetweenDateNow(expaireDate))
+                    / DateCalculation.dateDifference(createDate, expaireDate)));
         }
         return -1;
     }

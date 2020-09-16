@@ -16,7 +16,8 @@ public class Warehouse implements Store {
 
     @Override
     public boolean accept(Food food) throws IOException {
-        return DateCalculation.percent(food.getCreateDate(), food.getExpaireDate()) < 25;
+        long test = DateCalculation.percent(food.getCreateDate(), food.getExpaireDate());
+        return DateCalculation.percent(food.getCreateDate(), food.getExpaireDate()) < 25 && DateCalculation.percent(food.getCreateDate(), food.getExpaireDate()) > 0 ;
     }
 
     @Override

@@ -20,7 +20,7 @@ public class Shop implements Store {
         if (percent >= 25 && percent < 75) {
             return true;
         }
-        if (percent >= 75) {
+        if (percent >= 75 && percent < 100) {
             food.setDisscount(50);
             return true;
         }

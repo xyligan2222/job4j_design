@@ -15,6 +15,7 @@ public class Trash implements Store {
 
     @Override
     public boolean accept(Food food) throws IOException {
+        long test =  DateCalculation.createDateBetweenDateNow(food.getExpaireDate());
         return DateCalculation.createDateBetweenDateNow(food.getExpaireDate()) > 0;
     }
 

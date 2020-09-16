@@ -11,15 +11,16 @@ public class ControlQuality {
         this.store = store;
     }
 
+    /*public ControlQuality(Food food) {
+        this. = store;
+    }*/
 
-    public void distribute(List<Food> foods) throws IOException {
-        Warehouse warehouse = new Warehouse();
-        Shop shop = new Shop();
-        Trash trash = new Trash();
-        for (Food food : foods) {
-                //warehouse.add(food);
-                shop.add(food);
-                //trash.add(food);
+
+    public void distribute(Food food) throws IOException {
+        for (Store s : store) {
+            if (s.accept(food)) {
+                s.add(food);
+                break;
             }
         }
 
@@ -48,4 +49,5 @@ public class ControlQuality {
         }
         return null;
     }*/
+    }
 }

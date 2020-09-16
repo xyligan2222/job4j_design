@@ -19,40 +19,46 @@ public class ControlQualityTest {
         Food food = new Milk();
         List<Store> list = List.of(warehouse, trash, shop);
         ControlQuality controlQuality = new ControlQuality(list);
-        controlQuality.distribute(List.of(food));
-        //Assert.assertThat(warehouse.clear().size(), Is.is(0));
-        //Assert.assertThat(trash.clear().size(), Is.is(0));
-      // Assert.assertThat(shop.clear().get(0).getName(), Is.is("Prostokvashino"));
-        System.out.println(shop.getFood());
+        controlQuality.distribute(food);
+        Assert.assertThat(warehouse.clear().size(), Is.is(0));
+        Assert.assertThat(trash.clear().size(), Is.is(0));
+        Assert.assertThat(shop.clear().get(0).getName(), Is.is("Prostokvashino"));
     }
-   /* @Test
+
+    @Test
     public void ControlTestMeatToWarehouse() throws IOException {
         Warehouse warehouse = new Warehouse();
-        Trash trash = new Trash();
         Shop shop = new Shop();
-        Meat meat = new Meat();
-        ControlQuality controlQuality = new ControlQuality(trash, warehouse, shop);
-        System.out.println(controlQuality.control(meat));
+        Trash trash = new Trash();
+        Food food = new Meat();
+        List<Store> list = List.of( trash, shop, warehouse);
+        ControlQuality controlQuality = new ControlQuality(list);
+        controlQuality.distribute(food);
+        Assert.assertThat(warehouse.clear().get(0).getName(), Is.is("Pork"));
     }
 
     @Test
     public void ControlTestTeaToTrash() throws IOException {
         Warehouse warehouse = new Warehouse();
-        Trash trash = new Trash();
         Shop shop = new Shop();
-        Tea tea = new Tea();
-        ControlQuality controlQuality = new ControlQuality(trash, warehouse, shop);
-        System.out.println(controlQuality.control(tea));
+        Trash trash = new Trash();
+        Food food = new Tea();
+        List<Store> list = List.of(warehouse, trash, shop);
+        ControlQuality controlQuality = new ControlQuality(list);
+        controlQuality.distribute(food);
+        Assert.assertThat(trash.clear().get(0).getName(), Is.is("Lipton"));
     }
 
     @Test
     public void ControlTestIceCreamToShopSale() throws IOException {
         Warehouse warehouse = new Warehouse();
-        Trash trash = new Trash();
         Shop shop = new Shop();
-        IceCream iceCream = new IceCream();
-        ControlQuality controlQuality = new ControlQuality(trash, warehouse, shop);
-        System.out.println(controlQuality.control(iceCream));
-    } */
+        Trash trash = new Trash();
+        Food food = new IceCream();
+        List<Store> list = List.of(warehouse, trash, shop);
+        ControlQuality controlQuality = new ControlQuality(list);
+        controlQuality.distribute(food);
+        Assert.assertThat(shop.clear().get(0).getName(), Is.is("Novichok"));
+    }
 
 }
