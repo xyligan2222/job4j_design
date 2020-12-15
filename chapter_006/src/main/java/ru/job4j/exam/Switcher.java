@@ -9,7 +9,6 @@ public class Switcher {
                     Thread.currentThread().setName("Thread A");
                     masterSlaveBarrier.tryMaster();
                     masterSlaveBarrier.doneMaster();
-
                 }
             }
     );
