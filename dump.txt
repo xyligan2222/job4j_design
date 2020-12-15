@@ -1,0 +1,8 @@
+Petr Arsentev;parsentev@yandex.ru;
+Petr Ivanov;pivanov@gmail.com;
+Vasya Ivanov;vivanov@gmail.com;
+Valera Ivanov;2ivanov@gmail.com;
+Andrew Ivanov;23ivanov@gmail.com;
+Kozel Ivanov;ksivanov@gmail.com;
+Korova Ivanov;kivanov@gmail.com;
+Koros Ivanov;kivanov@gmail.com;
